@@ -1,0 +1,43 @@
+﻿@model List<EstateModel>
+
+@if (Model != null && Model.Any())
+{
+    <!-- Varolan Veriyi Görüntüleme Tablosu -->
+    <h2>Emlaklar</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Square</th>
+            <th>Room Count</th>
+            <th>Floor Count</th>
+            <th>Floor</th>
+            <th>Estate Type ID</th>
+            <th>Oluşturulma Tarihi</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var estate in Model)
+        {
+            <tr>
+                <td>@estate.Id</td>
+                <td>@estate.Name</td>
+                <td>@estate.Square</td>
+                <td>@estate.RoomCount</td>
+                <td>@estate.FloorCount</td>
+                <td>@estate.Floor</td>
+                <td>@estate.EstateTypeId</td>
+                <td>@estate.CreatedDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Emlaklar bulunamadı.</p>
+}
+
+<a href="Estate/Estate" class="btn btn-primary mt-1">Yeni Ekle</a>

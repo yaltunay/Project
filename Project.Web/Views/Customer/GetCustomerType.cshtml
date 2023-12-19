@@ -1,0 +1,37 @@
+﻿@model List<CustomerTypeModel>
+
+@if (Model != null && Model.Any())
+{
+    <!-- Varolan Veriyi Görüntüleme Tablosu -->
+    <h2>Müşteri Tipleri</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adı</th>
+            <th>Açıklama</th>
+            <th>Oluşturulma Tarihi</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var customerType in Model)
+        {
+            <tr>
+                <td>@customerType.Id</td>
+                <td>@customerType.Name</td>
+                <td>@customerType.Description</td>
+                <td>@customerType.CreatedDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>Müşteri tipleri bulunamadı.</p>
+
+}
+
+<a href="CustomerType" class="btn btn-primary mt-1">Yeni Ekle</a>

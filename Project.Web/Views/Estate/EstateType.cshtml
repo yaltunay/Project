@@ -1,0 +1,19 @@
+﻿@model EstateTypeModel
+@{
+    ViewData["Title"] = "Yeni Emlak Türü Ekle";
+}
+<h2>Yeni Emlak Türü Ekle</h2>
+
+<form method="post" action="CreateEstateType">
+    <div class="form-group">
+        <label for="Name" class="form-label">Adı:</label>
+        <input type="text" id="Name" name="Name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Description" class="form-label">Açıklama:</label>
+        <input type="text" id="Description" name="Description" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-1">Kaydet</button>
+</form>

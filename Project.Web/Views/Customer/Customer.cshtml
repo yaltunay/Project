@@ -1,0 +1,53 @@
+﻿@model CustomerModel
+@{
+    if (ViewBag.CustomerTypes == null)
+    {
+        ViewBag.CustomerTypes = new List<CustomerTypeModel>();
+    }
+}
+<!-- Yeni Ekleme Formu -->
+<h2>Yeni Müşteri Ekle</h2>
+
+<form method="post" action="CreateCustomer">
+    <div class="form-group">
+        <label for="Name" class="form-label">Adı:</label>
+        <input type="text" id="Name" name="Name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Surname" class="form-label">Soyadı:</label>
+        <input type="text" id="Surname" name="Surname" class="form-control" required>
+    </div>
+
+    @* <div class="form-group">
+    <label for="CustomerTypeId" class="form-label">Müşteri Tipi ID:</label>
+    <input type="text" id="CustomerTypeId" name="CustomerTypeId" class="form-control" required>
+    </div> *@
+
+    <div class="form-group">
+        <label for="CustomerTypeId" class="form-label">Müşteri Tipi:</label>
+        <select id="CustomerTypeId" name="CustomerTypeId" class="form-control" required>
+            @foreach (var customerType in ViewBag.CustomerTypes)
+            {
+                <option value="@customerType.Id">@customerType.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Phone" class="form-label">Telefon:</label>
+        <input type="text" id="Phone" name="Phone" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="Mobile" class="form-label">Cep Telefonu:</label>
+        <input type="text" id="Mobile" name="Mobile" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Email" class="form-label">Email:</label>
+        <input type="text" id="Email" name="Email" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-1">Kaydet</button>
+</form>
